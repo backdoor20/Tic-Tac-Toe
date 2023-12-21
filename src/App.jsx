@@ -5,7 +5,7 @@ import Player from "./components/Player";
 import { WINNING_COMBINATIONS } from "./winning-combinations.js";
 import GameOver from "./components/GameOver.jsx";
 
-const PLAYER = {
+const PLAYERS = {
   X: "Player 1",
   O: "Player 2",
 };
@@ -56,7 +56,7 @@ function deriveGameBoard(gameTurn) {
 }
 
 function App() {
-  const [playerName, setPlayerName] = useState(PLAYER);
+  const [playerName, setPlayerName] = useState(PLAYERS);
   const [gameTurn, setGameTurn] = useState([]);
   const activePlayer = deriveCurrentPlayer(gameTurn);
   function onSelectSquare(rowIndex, colIndex) {
@@ -89,13 +89,13 @@ function App() {
       <div id="game-container">
         <ol id="players" className="highlight-player">
           <Player
-            name={PLAYER.X}
+            name={PLAYERS.X}
             symbol="X"
             isActive={activePlayer === "X"}
             changePlayerName={handlePlayerNameChange}
           />
           <Player
-            name={PLAYER.O}
+            name={PLAYERS.O}
             symbol="O"
             isActive={activePlayer === "O"}
             changePlayerName={handlePlayerNameChange}
